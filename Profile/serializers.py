@@ -11,4 +11,3 @@ class profileSerializer(serializers.ModelSerializer):
             'id', 'owner', 'created_at', 'updated_at', 'name',
             'content', 'image'
         ]
-
