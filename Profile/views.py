@@ -10,8 +10,8 @@ from drf_api.permission import IsOwnerOrReadOnly
 class ProfileList(APIView):
     def get(self, request):
         profiles = Profile.objects.all()
-        serializer = profileSerializer(profiles, many=True,
-        context={'request': request})
+        serializer = profileSerializer(
+            profiles, many=True, context={'request': request})
 
         return Response(serializer.data)
 
@@ -19,6 +19,7 @@ class ProfileList(APIView):
 class ProfileDetail(APIView):
     serializer_class = profileSerializer
     permission_classes = [IsOwnerOrReadOnly]
+
     def get_object(self, pk):
         try:
             profile = Profile.objects.get(pk=pk)
@@ -34,7 +35,8 @@ class ProfileDetail(APIView):
 
     def put(self, request, pk):
         profile = self.get_object(pk)
-        serializer = profileSerializer(profile, data=request.data, context={'request': request})
+        serializer = profileSerializer(
+            profile, data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
