@@ -16,4 +16,4 @@ class LikeList(generics.ListCreateAPIView):
 class Likedetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Like.objects.all()
-    serializer_class = LikeSerializer()
+    serializer_class = LikeSerializer
