@@ -62,7 +62,7 @@ DEBUG = "DEV" in os.environ
 
 ALLOWED_HOSTS = [
      os.environ.get('ALLOWED_HOST'),
-    'localhost'
+     'localhost'
 ]
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
